@@ -34,5 +34,16 @@ sudo systemctl stop    challenge-flightradar.service
 sudo systemctl restart challenge-flightradar.service
 ```
 
-## Service log preview
+# Service log
+
+## Preview
 `sudo journalctl -u challenge-flightradar.service`
+## Removal log
+`sudo journalctl --vacuum-time=1s`
+## Removal of all logs
+`sudo rm -rf /var/log/journal/*`
+## Disk usage
+`sudo journalctl --disk-usage`
+
+
+
