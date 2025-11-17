@@ -45,7 +45,7 @@ public class AdsbApiQueryTask {
 
             aircraftService.processNotification(aircraftNotification, beginTimestamp);
         } catch (Exception ex) {
-            log.info("ADSB REST API Query failed", ex);
+            log.error("ADSB REST API Query failed", ex);
         } finally {
             active.set(Boolean.FALSE);
         }

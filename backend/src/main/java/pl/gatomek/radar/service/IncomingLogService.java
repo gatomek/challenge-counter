@@ -15,6 +15,7 @@ import java.time.Instant;
 @Service
 class IncomingLogService implements IncomingLogUseCase {
 
+    // Expected success status from ADS-B API response
     private static final String NO_ERROR = "No error";
 
     private final ApplicationEventPublisher applicationEventPublisher;
@@ -30,9 +31,11 @@ class IncomingLogService implements IncomingLogUseCase {
 
         log.info("{} | {} | {}ms | n:{}", beginTimestamp, apiTimestamp, duration.toMillis(), aircraftNotification.getTotal());
 
-        aircraftNotification.getAircraftLogs().forEach(ac ->
-                applicationEventPublisher.publishEvent(AircraftLogMessage.of(this, ac.withTimestamp(apiTimestamp)))
-        );
+        if (aircraftNotification.getAircraftLogs() != null) {
+            aircraftNotification.getAircraftLogs().forEach(ac ->
+                    applicationEventPublisher.publishEvent(AircraftLogMessage.of(this, ac.withTimestamp(apiTimestamp)))
+            );
+        }
     }
 }
 

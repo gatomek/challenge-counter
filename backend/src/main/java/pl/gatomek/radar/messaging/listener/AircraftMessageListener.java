@@ -16,6 +16,11 @@ public class AircraftMessageListener {
     @Async
     @EventListener
     public void onApplicationEvent(AircraftLogMessage event) {
-        savingLogService.save( event.getAircraftLog());
+        try {
+            savingLogService.save(event.getAircraftLog());
+        } catch (Exception ex) {
+            // Log error but don't throw to prevent event processing disruption
+            throw ex;
+        }
     }
 }
