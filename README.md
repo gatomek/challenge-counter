@@ -1,2 +1,1 @@
-# challenge-counter
-Challenge project. Counter simulator.
+# Challenge Flightradar Project
