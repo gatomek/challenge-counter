@@ -36,4 +36,4 @@ create index flight_evt_startlogid_idx on radar.flight_evt (startlogid);
 create index flight_evt_endlogid_idx on radar.flight_evt (endlogid);
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA radar TO ${SQL_DB_USER};
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA radar TO t${SQL_DB_USER};
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA radar TO ${SQL_DB_USER};

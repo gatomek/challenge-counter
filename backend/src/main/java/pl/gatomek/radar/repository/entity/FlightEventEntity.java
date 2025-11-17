@@ -16,7 +16,7 @@ public class FlightEventEntity {
     @SequenceGenerator(name = "flight_evt_seq", sequenceName = "flight_evt_id_seq", allocationSize = 1, schema = "radar")
     private Long id;
 
-    @Column(name = "uuid", length = 20)
+    @Column(name = "uuid")
     private UUID uuid;
 
     @Column(name = "icao", length = 20, nullable = false)
@@ -30,4 +30,7 @@ public class FlightEventEntity {
 
     @Column(name = "comment")
     private String comment;
+
+    @Column(name = "timestamp")
+    private java.time.Instant timestamp;
 }

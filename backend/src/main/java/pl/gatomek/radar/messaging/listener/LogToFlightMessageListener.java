@@ -15,6 +15,11 @@ public class LogToFlightMessageListener {
     @Async
     @EventListener
     public void onApplicationEvent(LogToFlightMessage message) {
-        logToFlightService.match( message.getLogId());
+        try {
+            logToFlightService.match(message.getLogId());
+        } catch (Exception ex) {
+            // Log error but don't throw to prevent event processing disruption
+            throw ex;
+        }
     }
 }
