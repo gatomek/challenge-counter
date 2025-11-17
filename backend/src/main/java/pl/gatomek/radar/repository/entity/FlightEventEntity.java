@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -32,5 +33,5 @@ public class FlightEventEntity {
     private String comment;
 
     @Column(name = "timestamp")
-    private java.time.Instant timestamp;
+    private Instant timestamp;
 }
